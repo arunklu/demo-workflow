@@ -1,18 +1,18 @@
-name: FBuld Frontend Service
-on: workflow_dispatch
-jobs:
-  run-shell-command:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Build Docker image
-        run: |
-          cd front-end
-          docker build -t arunr039/front-end:${{github.run_number}} .
-      - name: Login to Docker hub and push
-        run: |
-          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker push arunr039/front-end:${{github.run_number}}
+# name: Buld Frontend Service
+# on: workflow_dispatch
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#       - name: Build Docker image
+#         run: |
+#           cd front-end
+#           docker build -t arunr039/front-end:${{github.run_number}} .
+#       - name: Login to Docker hub and push
+#         run: |
+#           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+#           docker push arunr039/front-end:${{github.run_number}}
 
       

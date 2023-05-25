@@ -1,8 +1,8 @@
 name: Build Backned Service
-on: 
-  workflow_dispatch:
+on: workflow_run
+
 jobs:
-  build:
+  backend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
