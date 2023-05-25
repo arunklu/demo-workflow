@@ -13,9 +13,8 @@ jobs:
       #   run: docker -v
       - name: Build Docker image
         run: |
-
           ls -l
-
+          cd webapp
           docker build -t arunr039/dgweb:actions .
       - name: Login to Docker hub and push
         run: |
