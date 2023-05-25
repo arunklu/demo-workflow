@@ -26,5 +26,5 @@ jobs:
         run: |
           MYSQL_PASSWORD=${{ secrets.DB_USERNAME }} 
           MYSQL_HOST=${{ secrets.DB_HOST }}
-          mysql -h "MYSQL_HOST" -u ${{ secrets.DB_USERNAME }} -p"$MYSQL_PASSWORD"  ${{ secrets.DATABASE}} < ./database/delivery.sql
+          mysql -h "$MYSQL_HOST" -u ${{ secrets.DB_USERNAME }} -p"$MYSQL_PASSWORD"  ${{ secrets.DATABASE}} < ./database/delivery.sql
       
