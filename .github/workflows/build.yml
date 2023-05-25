@@ -13,6 +13,7 @@ jobs:
       #   run: docker -v
       - name: Build Docker image
         run: |
+          cd /home/runner/work/demo-workflow/demo-workflow
           pwd
           ls -l
       #     docker build -t arunr039/dgweb:actions .
