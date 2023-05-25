@@ -6,7 +6,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        run: cd webapp
+        run: |
+          ls
+          pwd
+          cd webapp
 
       - name: echo a string
         run: echo "Hello World"
