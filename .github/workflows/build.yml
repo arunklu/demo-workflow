@@ -1,4 +1,4 @@
-name: Run Simple Workflow
+name: Front-End Build and Push
 on: workflow_dispatch
 jobs:
   run-shell-command:
@@ -15,8 +15,8 @@ jobs:
         run: |
           ls -l
           cd webapp
-          docker build -t arunr039/dgweb:actions .
+          docker build -t arunr039/dgweb:v100 .
       - name: Login to Docker hub and push
         run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker push arunr039/dgweb:actions
+          docker push arunr039/dgweb:v100
