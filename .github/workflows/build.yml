@@ -13,7 +13,8 @@ jobs:
       #   run: docker -v
       - name: Build Docker image
         run: |
-          cd /home/runner/work/demo-workflow/demo-workflow/webapps
+          cd /home/runner/work/demo-workflow/demo-workflow/
+          ls -l
 
           docker build -t arunr039/dgweb:actions .
       - name: Login to Docker hub and push
