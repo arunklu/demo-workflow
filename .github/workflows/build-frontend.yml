@@ -16,5 +16,5 @@ jobs:
           docker push arunr039/front-end:${{github.run_number}}
       - name: Build Backend Service
         run: |
-          pwd
+          cd back-end
           ls
