@@ -22,4 +22,7 @@ jobs:
         run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
           docker push arunr039/back-end:${{github.run_number}}
+      - name: Import Database
+        run: |
+          mysql -u ${{ secrets.DB_USERNAME }} -p"${{ secrets.DB_USERNAME }}" -h ${{ secrets.DB_HOST }} ${{ secrets.DATABASE}} < ./database/delivery.sql
       
