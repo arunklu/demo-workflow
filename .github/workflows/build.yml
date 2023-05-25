@@ -13,10 +13,9 @@ jobs:
       #   run: docker -v
       - name: Build Docker image
         run: |
-          ls -l
-          cd webapp
-          docker build -t arunr039/dgweb:v100 .
+          cd front-end
+          docker build -t arunr039/front-end:v1 .
       - name: Login to Docker hub and push
         run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker push arunr039/dgweb:v100
+          docker push arunr039/front-end:v1
