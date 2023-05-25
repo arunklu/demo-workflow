@@ -1,12 +1,14 @@
-name: Buld Backned Service
-on: workflow_dispatch
+name: Build Backned Service
+on: 
+  workflow_dispatch:
 jobs:
-  run-shell-command:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build Backend
+      
         run: |
           cd back-end
           docker build -t arunr039/backend:${{github.run_number}}
