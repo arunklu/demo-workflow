@@ -1,4 +1,4 @@
-name: Buld Frontend Service
+name: Build Frontend Service
 on: [push]
 jobs:
   build:
