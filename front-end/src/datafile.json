@@ -1,0 +1,27 @@
+[{
+    "id":"1",
+    "name":"Become A Delivery Partner",
+    "title":"It has survived not only five centuries, but also the leap into electronic typesetting,remaining essentially unchanged.",
+    "image":"https://www.justfoodz.com/images/sucess-1.png",
+    "pname":"Start Earning",
+    "details":" Some quick example text to build on the card title and make up the bulk of            the card's content."
+},
+{
+"id":"2",
+"name":"Become A  Partner",
+"title":"It has survived not only five centuries, but also the leap into electronic typesetting,remaining essentially unchanged.",
+"image":"https://www.justfoodz.com/images/SearchYourTaste1.png ",
+"pname":"Sing Up Your Store",
+"details":" Some quick example text to build on the card title and make up the bulk of            the card's content."
+},
+
+{
+    "id":"3",
+    "name":"Try The App",
+    "title":"It has survived not only five centuries, but also the leap into electronic typesetting,remaining essentially unchanged.",
+    "image":"https://www.justfoodz.com/images/PlaceYourOrder.png",
+    "pname":"Get The App",
+    "details":" Some quick example text to build on the card title and make up the bulk of            the card's content."
+}
+
+]
