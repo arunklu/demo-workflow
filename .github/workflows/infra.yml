@@ -1,27 +1,37 @@
 name: Build Frontend Service
-on: [push]
-jobs:
+on:
+  push:
+    branches:
+      - main
+
 env:
-AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCCESS_KEY}}
-AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY}}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+
+jobs:
   build:
     runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-       - name: terraform plan
-         run: |
-           cd front-end
-           docker build -t arunr039/front-end:${{github.run_number}} .
-       - name: Login to Docker hub and push
-         run: |
-           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-           docker push arunr039/front-end:${{github.run_number}}
-       - name: Build Backend Service
-         run: |
-           cd back-end
-           docker build -t arunr039/back-end:${{github.run_number}} .
-       - name: Login and Push backned Image
-         run: |
-           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-           docker push arunr039/back-end:${{github.run_number}}
+      - uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform plan
+        run: |
+          cd infrastructure/modules/sns
+          terraform plan
+
+      # - name: Login to Docker Hub and push
+      #   run: |
+      #     echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      #     docker push arunr039/front-end:${{ github.run_number }}
+
+      # - name: Build Backend Service
+      #   run: |
+      #     cd back-end
+      #     docker build -t arunr039/back-end:${{ github.run_number }} .
+
+      # - name: Login and Push backend Image
+      #   run: |
+      #     echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      #     docker push arunr039/back-end:${{ github.run_number }}
