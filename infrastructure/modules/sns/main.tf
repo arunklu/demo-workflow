@@ -1,17 +1,18 @@
-resource "aws_sns_topic" "sns-sq-topic" {
-  count = length(var.sns_topics)
-  name = var.sns_topics[count.index]
-  kms_master_key_id = var.sns_topics[count.index] == "outbox-topic" ? "" : "alias/sns/test"
+ resource "aws_sns_topic" "test-sns" {
+    for_each = toset(var.sns_topics)
+    name = each.value
+  
 }
 
-# module "sns-sqs" {
-#   source = "../sqs"
+resource "aws_sqs_queue" "test-queue" {
+  name = "test-queue"
+}
 
-# }
 
-resource "aws_sns_topic_subscription" "sqs-sns-topic-subs" {
-  count = length(var.sns_topics)
-  endpoint  = module.sns-sqs.sqs-arn
-  protocol  = "sqs"
-  topic_arn = aws_sns_topic.sns-sq-topic[count.index].arn
+resource "aws_sns_topic_subscription" "test-subscription" {
+    for_each = toset(var.sns_topics) 
+    protocol = "sqs"
+    endpoint = aws_sqs_queue.test-queue.arn
+    topic_arn = aws_sns_topic.test-sns[each.key].arn
+  
 }
