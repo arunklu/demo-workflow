@@ -1,4 +1,4 @@
-name: Build Front-End
+name: Build Front-End Service
 on: workflow_dispatchjobs:
   build:
     runs-on: ubuntu-latest
