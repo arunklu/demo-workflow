@@ -1,5 +1,6 @@
 name: Build Frontend Service
-on: workflow_dispatch
+on:
+  workflow_dispatch
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
@@ -18,18 +19,3 @@ jobs:
         run: |
           cd infrastructure/modules/sns
           terraform plan
-
-      # - name: Login to Docker Hub and push
-      #   run: |
-      #     echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      #     docker push arunr039/front-end:${{ github.run_number }}
-
-      # - name: Build Backend Service
-      #   run: |
-      #     cd back-end
-      #     docker build -t arunr039/back-end:${{ github.run_number }} .
-
-      # - name: Login and Push backend Image
-      #   run: |
-      #     echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      #     docker push arunr039/back-end:${{ github.run_number }}
