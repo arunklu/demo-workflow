@@ -10,7 +10,11 @@ jobs:
       - name: Initialize env
         run: |
           cd infrastructure/modules/sns
+          bash aws.sh
           terraform init
+      - name: add aws keys
+        run : |
+          terraform plan
 
 
 

@@ -1,0 +1,4 @@
+AWS_ACCESS_KEY_ID="$secrets.AWS_ACCESS_KEY_ID"
+AWS_SECRET_ACCESS_KEY="$secrets.AWS_SECRET_ACCESS_KEY"
+export AWS_ACCESS_KEY_ID="anaccesskey"
+export AWS_SECRET_ACCESS_KEY="asecretkey"
