@@ -4,10 +4,10 @@ resource "aws_sns_topic" "sns-sq-topic" {
   kms_master_key_id = var.sns_topics[count.index] == "outbox-topic" ? "" : "alias/sns/test"
 }
 
-module "sns-sqs" {
-  source = "../sqs"
+# module "sns-sqs" {
+#   source = "../sqs"
 
-}
+# }
 
 resource "aws_sns_topic_subscription" "sqs-sns-topic-subs" {
   count = length(var.sns_topics)
