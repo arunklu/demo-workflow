@@ -2,8 +2,8 @@ name: Build Frontend Service
 on: [push]
 jobs:
 env:
-AWS_ACCESS_KEY: ${{ secrets.AWS_ACCCESS_KEY}}
-AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY}}
+AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCCESS_KEY}}
+AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY}}
   build:
     runs-on: self-hosted
     steps:
