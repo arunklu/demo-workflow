@@ -7,10 +7,10 @@ jobs:
       - name: chkout
         uses: actions/checkout@v2
       - uses:  hashicorp/setup-terraform@v2
-      - name: terraform plan
+      - name: Initialize env
         run: |
           cd infrastructure/modules/sns
-          terraform plan
+          terraform init
 
 
 
