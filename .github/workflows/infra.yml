@@ -1,8 +1,5 @@
 name: Build Frontend Service
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
