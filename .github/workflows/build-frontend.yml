@@ -1,4 +1,4 @@
-name: Build Frontend Service
+name: Infrastructure Creation
 on: [push]
 jobs:
   build:
@@ -6,22 +6,16 @@ jobs:
     steps:
       - name: chkout
         uses: actions/checkout@v2
-      - uses:  hashicorp/setup-terraform@v2
-      - name: Initialize env
-        run: |
-          cd infrastructure/modules/sns
-          bash aws.sh
-          terraform init
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1
-      - name: plan
+
+      - name: Build Front-End
         run : |
-          cd infrastructure/modules/sns
-          terraform plan
+          cd frontend
+          docker build -t arunr039/front-end:${{github.run_number}}
+      - name: Login to Docker hub and push
+        run: |
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          docker push arunr039/front-end:${{github.run_number}}
+
 
         
 
