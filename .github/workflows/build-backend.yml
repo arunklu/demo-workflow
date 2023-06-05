@@ -1,4 +1,4 @@
-name: Build Back-End
+name: Build Back-End Service
 on: workflow_dispatch
 jobs:
   build:
