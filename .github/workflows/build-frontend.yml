@@ -14,7 +14,8 @@ jobs:
           terraform init
       - name: add aws keys
         run : |
-          terraform plan
+          ls -l
+        
 
 
 
