@@ -1,5 +1,5 @@
-name: Infrastructure Creation
-on: [push]
+name: Build Back-End
+on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -7,7 +7,7 @@ jobs:
       - name: chkout
         uses: actions/checkout@v2
 
-      - name: Build Front-End
+      - name: Build Back-End
         run : |
           cd back-end
           docker build -t arunr039/back-end:${{github.run_number}}

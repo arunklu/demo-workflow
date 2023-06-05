@@ -1,4 +1,4 @@
-name: Infrastructure Creation
+name: Build Front-End
 on: [push]
 jobs:
   build:
