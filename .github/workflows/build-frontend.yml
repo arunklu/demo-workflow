@@ -1,6 +1,5 @@
 name: Build Front-End
-on: [push]
-jobs:
+on: workflow_dispatchjobs:
   build:
     runs-on: ubuntu-latest
     steps:
