@@ -1,5 +1,9 @@
 name: Infrastructure Creation
 on: workflow_dispatch
+env:
+  PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
+  HOSTNAME : ${{ secrets.SSH_KEY  }}
+  USER_NAME : ${{ secrets.USER_NAME  }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,3 +26,8 @@ jobs:
         run : |
           cd infrastructure/modules/sns
           terraform plan
+      - name: login ec2
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ubuntu@43.204.25.46 '   
+      
