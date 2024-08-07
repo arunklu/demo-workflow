@@ -9,7 +9,7 @@ jobs:
 
       - name: Build front-End
         run : |
-          cd back-end
+          cd front-end
           docker build -t arunr039/back-end:${{github.run_number}} .
       # - name: Login to Docker hub and push
       #   run: |
